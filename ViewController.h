@@ -3,13 +3,30 @@
 
 #include <SDL2/SDL.h>
 #include "constants.h"
+// Fetch models
+#include "Background.h"
+#include "Player.h"
+#include "PlayerInput.h"
+// Fetch views
+#include "BackgroundView.h"
+#include "PlayerView.h"
+#include "PlayerInputView.h"
 
 class ViewController {
 private:
-	SDL_Window * viewport;									// The SDL window
-	SDL_Surface * viewportSurface;							// The surface of the SDL window
+	SDL_Window * viewport; // The SDL window
+	SDL_Surface * viewportSurface; // The surface of the SDL window
 	
-	SDL_Event event;										// Current SDL event
+	SDL_Event event; // Current SDL event
+	
+	// Models
+	Background background;
+	Player player;
+	PlayerInput plyInput;
+	// Views
+	PlayerView playerView;
+	BackgroundView backgroundView;
+	PlayerInputView plyInputView;
 public:
 	ViewController();										// Contructor, initializes properties
 	~ViewController();										// Destructor, calls destroySDL and closes controllers.

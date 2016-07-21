@@ -20,6 +20,14 @@ bool ViewController::viewLoaded() {
 }
 
 void ViewController::updateDisplay() {
+	// Draw the background
+	this->backgroundView.drawBackground(this->player.getXPosition(), this->player.getYPosition(), this->viewportSurface);
+	
+	// Draw the player
+	this->playerView.drawPlayer(this->viewportSurface);
+	
+	// Draw the player input box
+	this->plyInputView.drawPlyInput(this->viewportSurface);
 	return;
 }
 

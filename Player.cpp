@@ -4,6 +4,7 @@ Player::Player() {
 	// Initialize speed and position
 	this->position.resize(NUM_DIMENSIONS);
 	this->velocity.resize(NUM_DIMENSIONS);
+	
 	// Start at zero.
 	this->reorientAtZero();
 	this->stop();
@@ -12,6 +13,14 @@ Player::Player() {
 Player::~Player() {
 	return;
 }
+
+double Player::getXPosition() {
+	return this->position[X_AXIS];
+}
+double Player::getYPosition() {
+	return this->position[Y_AXIS];
+}
+
 void Player::accelerate(double x_component, double y_component) {
 	this->velocity[X_AXIS] += x_component;
 	

@@ -1,25 +1,27 @@
-#ifndef Player_hpp
-#define Player_hpp
+#ifndef Player_h
+#define Player_h
 
 #include <Vector>
 #include "constants.h"
 
 class Player {
 private:
-	const int NUM_DIMENSIONS = 2;								// Number of spatial dimensions
-	const int X_AXIS = 0;										// Specifies the x-axis as the first element in an array.
-	const int Y_AXIS = 1;										// Specifies the y-axis as the second element in an array.
-	const int MAX_SPEED = 100.0;								// Speed ceiling
-	std::vector<double> position;								// Position of the player
-	std::vector<double> velocity;								// Speed and direction of the player
+	const int NUM_DIMENSIONS = 2;	// Number of spatial dimensions
+	enum {X_AXIS, Y_AXIS};			// Specifies axis numbering.
+	const int MAX_SPEED = 100.0;	// Speed ceiling
+	std::vector<double> position;	// Position of the player
+	std::vector<double> velocity;	// Speed and direction of the player
+	/* std::vector<double> inertia;	// "Slows down" velocity changes. */
 public:
 	Player();
 	~Player();
-	void accelerate(double x_component, double y_component);	// Increses the speed by the amount specified.
-	void updatePostion();										// Sums velocity to position.
-	bool stop();												// Clears velocity
-	bool reorientAtZero();										// Clears position
-	void printStats();
+	double getXPosition(); // Returns position on x plane.
+	double getYPosition(); // Returns position on y plane.
+	void accelerate(double x_component, double y_component); // Increses the speed by the amount specified.
+	void updatePostion(); // Sums velocity to position.
+	bool stop(); // Clears velocity
+	bool reorientAtZero(); // Clears position
+	void printStats(); // Prints velocity and position (does not work for small masses)
 };
 
 #endif
