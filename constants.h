@@ -6,3 +6,5 @@
 #define SDL_WINDOW_HEIGHT 650
 
 #endif
+
+#define FOR_WINDOWS_OS 1  //0 for iOS; 1 for Windows

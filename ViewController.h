@@ -1,8 +1,13 @@
 #ifndef ViewController_hpp
 #define ViewController_hpp
 
-#include <SDL2/SDL.h>
 #include "constants.h"
+
+#if FOR_WINDOWS_OS
+	#include <SDL.h>
+#else
+	#include <SDL2/SDL.h>
+#endif
 // Fetch models
 #include "Background.h"
 #include "Player.h"
@@ -16,10 +21,10 @@ class ViewController {
 private:
 	SDL_Window * viewport; // The SDL window
 	SDL_Surface * viewportSurface; // The surface of the SDL window
-	
+
 	SDL_Event event; // Current SDL event
-	
-	// Models
+
+					 // Models
 	Background background;
 	Player player;
 	PlayerInput plyInput;
@@ -34,7 +39,7 @@ public:
 	void updateDisplay();									// Main function for changing the display
 	bool initializeSDL();									// Start up SDL
 	void destroySDL();										// Close SDL
-	// Hastily implemented for SDL_Quit
+															// Hastily implemented for SDL_Quit
 	int getEventType();
 	void updateEvent();
 };

@@ -1,7 +1,12 @@
 #ifndef PlayerInputView_h
 #define PlayerInputView_h
+#include "constants.h"
 
-#include <SDL2/SDL.h>
+#if FOR_WINDOWS_OS
+	#include <SDL.h>
+#else
+	#include <SDL2/SDL.h>
+#endif
 
 class PlayerInputView {
 public:
